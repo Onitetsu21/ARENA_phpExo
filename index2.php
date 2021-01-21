@@ -11,22 +11,22 @@ if($_POST['fighters'] == "Mage"){
     $force = Personnage::FORCE_PETITE;
     $resistance = Personnage::RESISTANCE_PETITE;
 }else if($_POST['fighters'] == "Voleur"){
-    $force = Personnage::FORCE_GRANDE;
+    $force = Personnage::FORCE_MOYENNE;
     $resistance = Personnage::RESISTANCE_PETITE;
 }else if($_POST['fighters'] == "Warrior"){
     $force = Personnage::FORCE_GRANDE;
     $resistance = Personnage::RESISTANCE_MOYENNE;
 }else{
-    $force = Personnage::FORCE_MOYENNE;
+    $force = Personnage::FORCE_GRANDE;
     $resistance = Personnage::RESISTANCE_GRANDE;
 }
 
 $player1 = new $_POST['fighters'] ($_POST['name'], $force, 100, $resistance);
 
 $player3 = new Mage ('Mago', Personnage::FORCE_PETITE, 100, Personnage::RESISTANCE_PETITE);
-$player5 = new Paladin ('Palouf', Personnage::FORCE_PETITE, 100, Personnage::RESISTANCE_GRANDE);
-$player2 = new Warrior ('Barbouze', Personnage::FORCE_GRANDE, 100, Personnage::RESISTANCE_MOYENNE);
-$player4 = new Voleur ('Fufu', Personnage::FORCE_GRANDE, 100, Personnage::RESISTANCE_PETITE);
+$player5 = new Paladin ('Palouf', Personnage::FORCE_MOYENNE, 100, Personnage::RESISTANCE_GRANDE);
+$player4 = new Warrior ('Barbouze', Personnage::FORCE_GRANDE, 100, Personnage::RESISTANCE_MOYENNE);
+$player2 = new Voleur ('Fufu', Personnage::FORCE_GRANDE, 100, Personnage::RESISTANCE_PETITE);
 
 function combat($p1, $p2){
     
@@ -157,8 +157,17 @@ $roundNbr = 0
             <div class="stats"></div>
         </div>
     <?php endif ?>
-    <?php if($player1->vie() > 0): ?>                    
-        <div class="lvlEnemy"> Bravo à <?= $playerName ?> !! Il a réussi à détruire tous ces adversaires !!</div>
+    <?php if($player1->vie() > 0): ?>
+        <div class="end">
+            <h2>VICTOIRE</h2>                    
+            <div class="lvlEnemy"> Bravo à <?= $playerName ?> !! Il a réussi à détruire tous ces adversaires !!</div>
+        </div>
+    <?php endif ?>
+    <?php if ($player1->vie() <= 0):?>
+        <div class="end">
+            <h2>PERDU</h2>
+            <h3>Votre combattant est mort au combat...</h3>
+        </div>
     <?php endif ?>
     <div class="button_bot"><a class="button_little" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Dans la gloire ou la honte, choisissez un autre personnage!</a></div>
 </body>

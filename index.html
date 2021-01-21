@@ -10,6 +10,7 @@
     
     <div class="formulaire">
         <h1>Combien de rounds surviverez-vous?</h1>
+        <h2>Nombre de combats avant la victoire : 4</h2>
         <form action="index2.php" method="post">
             <div class="form_fighters form_question">
                 <label for="fighter-select">Choississez votre combattant</label>
@@ -24,7 +25,25 @@
                 <label for="character-name">Entrez le nom de votre personnage</label>
                 <input type="text" name="name" id="name" required>
             </div>
-            <div ><input type="submit" value="ENTRER DANS L'ARENE" class="button"></div>
+            <div class="form_question"><input type="submit" value="ENTRER DANS L'ARENE" class="button submit_button"></div>
+            <div class="descriptions">
+                <div class="berserker classe_description">
+                    <h2>Berserker</h2>
+                    <div>Le berserker a un poucentage de chance d'infliger des coup critique. A chaque fois qu'il n'en fait pas, il augmente ses chances pour les prochains coup!</div>
+                </div>
+                <div class="mage classe_description">
+                    <h2>Mage</h2>
+                    <div>Le mage a deux compétences magiques, il invoque aléatoirement soit une puissante boule de feu, soit un sort de protection qui le protègera du prochain coup et qui lui redonnera un peu de mana. S'il n'a plus de mana, il peut toujours frapper avec ton baton!</div>
+                </div>
+                <div class="voleur classe_description">
+                    <h2>Voleur</h2>
+                    <div>Le voleur a une bonne frappe et a de bonnes chances d'esquiver la prochaine attaque de son adversaire!</div>
+                </div>
+                <div class="paladin classe_description">
+                    <h2>Paladin</h2>
+                    <div>Le paladin a un important sort de soin et une frappe puissante!</div>
+                </div>
+            </div>
         </form>
     </div>
 

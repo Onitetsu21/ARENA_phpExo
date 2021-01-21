@@ -79,11 +79,12 @@ body{
     display: flex;
     margin: auto;
     flex-direction: column;
-
+    align-content: center;
 }
 
 .form_question{
-    margin: 10px;
+    margin: 10px auto auto auto;
+    text-align: center;
 }
 
 h1{
@@ -118,6 +119,27 @@ h1{
 }
 
 .button_bot{
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
+}
+
+.end{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descriptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.classe_description{
+    max-width: 150px;
+    margin: 10px;
+}
+
+.classe_description > h2{
+    text-align: center;
 }
