@@ -89,9 +89,23 @@ h1{
 }
 
 .button{
+    text-decoration: none;
     margin: 20px;
     text-align: center;
     font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(66, 0, 0);
+    color: white;
+    border: rgb(49, 1, 1) 1px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.button_little{
+    text-decoration: none;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
     font-weight: bold;
     background-color: rgb(66, 0, 0);
     color: white;
