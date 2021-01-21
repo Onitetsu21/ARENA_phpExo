@@ -60,7 +60,7 @@ $roundNbr = 0
         <div class="stats_p2"><?php $player4->afficherStats() ?></div>
     </div>
     <div class="lvlEnemy"><?= $playerName ?> rentre dans l'arène ! Combien d'ennemis va t-il pouvoir battre ?!</div>
-    <div class="lvlEnemy">Son premier ennemi est<?= $playerName ?> !</div>
+    <div class="lvlEnemy">Son premier ennemi est <?= $player4Name ?> !</div>
     <div class="board">
         <?php while($player1->vie() > 0 && $player4->vie() > 0): ?>
             <div class="roundNbr">ROUND <?= $roundNbr?></div>
@@ -82,6 +82,7 @@ $roundNbr = 0
     <?php if($player1->vie() > 0): ?>                   
     <div class="board">
         <div class="lvlUp"><?= $player3->gagnerExperience(1) ?></div>
+        <div class="lvlEnemy"> <?= $playerName ?> n'a fait qu'une bouché de son ennemi !</div>
         <div class="lvlEnemy">L'adversaire est plus fort cette fois, il est niveau 2!</div>
         <div class="stats">
             <div class="stats_p1"><?php $player1->afficherStats() ?></div>
@@ -135,7 +136,7 @@ $roundNbr = 0
 
     <?php if($player1->vie() > 0): ?>                    
         <div class="board">
-            <div class="lvlEnemy">L'adversaire est plus fort cette fois, il est niveau 3!</div>
+            <div class="lvlEnemy">C'est le moment du dernier combat contre Palouf le Paladin niveau 4 !!</div>
             <div class="lvlUp"><?= $player5->gagnerExperience(3) ?></div>
             <div class="stats">
                 <div class="stats_p1"><?php $player1->afficherStats() ?></div>
@@ -158,6 +159,9 @@ $roundNbr = 0
             <?php endwhile ?>
             <div class="stats"></div>
         </div>
+    <?php endif ?>
+    <?php if($player1->vie() > 0): ?>                    
+        <div class="lvlEnemy"> Bravo à <?= $playerName ?> !! Il a réussi à détruire tous ces adversaires !!</div>
     <?php endif ?>
 </body>
 </html>

@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARENA</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <form action="index2.php" method="post">
-        <label for="fighter-select">Choississez votre combattant</label>
-        <select name="fighters" id="fighter-select">
-            <option value="Warrior">Berserker</option>
-            <option value="Mage">Mage</option>
-            <option value="Voleur">Voleur</option>
-            <option value="Paladin">Paladin</option>
-        </select>
-        <label for="character-name">Entrez le nom de votre personnage</label>
-        <input type="text" name="name" id="name">
-        <p><input type="submit" value="ENTRER DANS L'ARENE"></p>
-    </form>
+    
+    <div class="formulaire">
+        <h1>Combien de rounds surviverez-vous?</h1>
+        <form action="index2.php" method="post">
+            <div class="form_fighters form_question">
+                <label for="fighter-select">Choississez votre combattant</label>
+                <select name="fighters" id="fighter-select">
+                    <option value="Warrior">Berserker</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Voleur">Voleur</option>
+                    <option value="Paladin">Paladin</option>
+                </select>
+            </div>
+            <div class="form_name form_question">
+                <label for="character-name">Entrez le nom de votre personnage</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div ><input type="submit" value="ENTRER DANS L'ARENE" class="button"></div>
+        </form>
+    </div>
+
 </body>
 </html>

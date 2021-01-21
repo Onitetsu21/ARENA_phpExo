@@ -64,3 +64,38 @@ body{
     flex-direction: column;
     text-align: right;
 }
+
+.formulaire{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items:  center;
+}
+
+.form{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+
+}
+
+.form_question{
+    margin: 10px;
+}
+
+h1{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.button{
+    margin: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(66, 0, 0);
+    color: white;
+    border: rgb(49, 1, 1) 1px;
+    border-radius: 5px;
+    padding: 10px;
+}
