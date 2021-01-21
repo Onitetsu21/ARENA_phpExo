@@ -113,3 +113,8 @@ h1{
     border-radius: 5px;
     padding: 10px;
 }
+
+.button_bot{
+    margin-top: 100px;
+    display: flex;
+}

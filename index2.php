@@ -4,7 +4,7 @@ spl_autoload_register(function ($class_name) {
     require 'classes/' . $class_name . '.php';
 });
 
-require "./classes/Personnage.php";
+// require "./classes/Personnage.php";
 
 // echo $_POST['fighters'];
 
@@ -164,7 +164,7 @@ $roundNbr = 0
     <?php if($player1->vie() > 0): ?>                    
         <div class="lvlEnemy"> Bravo à <?= $playerName ?> !! Il a réussi à détruire tous ces adversaires !!</div>
     <?php endif ?>
-    <div><a class="button_little" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Dans la gloire ou la honte, choisissez un autre personnage!</a></div>
+    <div class="button_bot"><a class="button_little" href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Dans la gloire ou la honte, choisissez un autre personnage!</a></div>
 </body>
 </html>
 
