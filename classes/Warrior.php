@@ -34,15 +34,16 @@ class Warrior extends Personnage
             parent::gagnerExperience(1);
         }
         $this->rage = true;
-        echo "$this->nom a fait un coup critique ! $target->nom a encore $target->vie" . "hp";
+        echo "$this->nom a fait un coup critique et inflige " . " $resultatDegats degats à " . $target->nom . "a encore " . $target->vie . "hp";
     }
 
     public function frapper($target){
         $degats = $this->forcePerso - $target->resistance;
         if($degats > 0){
             $target->setHealth($degats);
+
         }
-        echo $this->nom() . " frappe " . $target->nom() . ", il lui reste : " . $target->vie() . "hp" . "<br>";
+        echo $this->nom() . " frappe et inflige " . "$degats degats à " . $target->nom() . ", il lui reste : " . $target->vie() . "hp" . "<br>";
         if($target->vie <= 0){
             $target->isDead();
             parent::gagnerExperience(1);
@@ -51,7 +52,7 @@ class Warrior extends Personnage
     }
 
     public function setHealth($damage){
-            $this->vie -= (round($damage) - $this->resistance());
+            $this->vie -= round($damage);
             if($this->vie < 0 || $this->vie == 0 ){
                 $this->vie = 0;
             }

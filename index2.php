@@ -4,10 +4,6 @@ spl_autoload_register(function ($class_name) {
     require 'classes/' . $class_name . '.php';
 });
 
-// require "./classes/Personnage.php";
-
-// echo $_POST['fighters'];
-
 $force;
 $resistance;
 

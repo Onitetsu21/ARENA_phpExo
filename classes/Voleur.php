@@ -22,7 +22,7 @@ class Voleur extends Personnage
         if($degats > 0){
             $enemy->setHealth($degats);
         }
-        echo $this->nom() . " frappe " . $enemy->nom() . ", il lui reste : " . $enemy->vie() . "hp" . "<br>";
+        echo $this->nom() . " frappe et inflige " . "$degats degats à " . $enemy->nom() . ", il lui reste : " . $enemy->vie() . "hp" . "<br>";
         if($enemy->vie <= 0){
             $enemy->isDead();
             parent::gagnerExperience(1);
@@ -33,10 +33,10 @@ class Voleur extends Personnage
     public function setHealth($damage){
         $rand = rand(0, 100);
         if($rand > $this->esquive ){
-            $this->vie -= (round($damage) - $this->resistance());
+            $this->vie -= round($damage);
             $this->aEsquive = false;
         }else if($rand <= 30 && !$this->aEsquive){
-            echo "$this->nom va esquiver la prochaine attaque! <br>";
+            echo "$this->nom esquive la prochaine attaque! <br>";
             $this->aEsquive = true;
         }
     }

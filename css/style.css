@@ -1,13 +1,12 @@
 body{
     margin: auto;
     margin-top: 200px;
-    max-width: 1000px;
+    max-width: 1500px;
 }
 
 .board{
     margin: auto;
- 
-    max-width: 1000px;
+    max-width: 1500px;
 }
 .lvlUp{
     display: none;
@@ -24,7 +23,8 @@ body{
     margin: 2px;
     padding: 5px;
     display: flex;
-    justify-content: space-around;
+    text-align: center;
+    justify-content: space-between;
 }
 
 .roundNbr{
@@ -35,16 +35,19 @@ body{
 }
 
 .board_p1{
+    max-width: 300px;
      margin: auto;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .board_p2{
+    max-width: 300px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    text-align: right;
+    text-align: center;
 }
 
 .stats{

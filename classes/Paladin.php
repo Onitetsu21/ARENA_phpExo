@@ -27,8 +27,8 @@ class Paladin extends Personnage
     }
 
     public function heal() {
-        $min = 5 * $this->niveau();
-        $max = 15 * $this->niveau();
+        $min = 15 + ( 0.7 * $this->niveau());
+        $max = 25 + ( 0.7 * $this->niveau());
         $magicCost = rand($min, $max);
         $healAmount = $magicCost * $this->niveau();
         $this->vie += $healAmount;
@@ -52,7 +52,7 @@ class Paladin extends Personnage
             $enemy->setHealth($degats);
             $this->heal = false;
         }
-        echo $this->nom() . " frappe " . $enemy->nom() . ", il lui reste : " . $enemy->vie() . "hp" ;
+        echo $this->nom() . " frappe et inflige " . "$degats degats à " . $enemy->nom() . ", il lui reste : " . $enemy->vie() . "hp" . "<br>";
         if($enemy->vie <= 0){
             $enemy->isDead();
             parent::gagnerExperience(1);
@@ -60,7 +60,7 @@ class Paladin extends Personnage
     }
 
     public function setHealth($damage){
-        $this->vie -= (round($damage) - $this->resistance());
+        $this->vie -= round($damage);
         if($this->vie < 0 || $this->vie == 0 ){
             $this->vie = 0;
         }

@@ -22,7 +22,8 @@ class Mage extends Personnage
     }
 
     public function fireball($target) {
-        $magicCost = rand(5, 25);
+        $magicCost = rand(10, 20);
+        $degats = round($magicCost * (1.3 * $this->niveau));
         if ($this->magicPoints == 0) {
             echo "$this->nom n'a plus de mana, il tape avec son baton! <br>";
             $result = $this->frapper($target);
@@ -30,12 +31,13 @@ class Mage extends Personnage
         } else if ($magicCost > $this->magicPoints) {
             $magicCost = $this->magicPoints;
             $this->magicPoints = 0;
-            $target->setHealth($magicCost * (2 * $this->niveau));
+            
+            $target->setHealth($degats);
         } else {
             $this->magicPoints -= $magicCost;
-            $target->setHealth($magicCost * (2 * $this->niveau));
+            $target->setHealth($degats);
         }
-        echo "$this->nom a tiré une boule de feu, $target->nom a encore $target->vie hp";
+        echo "$this->nom a tiré une boule de feu et inflige $degats, $target->nom a encore $target->vie hp";
         if($target->vie <= 0){
             $target->isDead();
             parent::gagnerExperience(1);
@@ -47,15 +49,16 @@ class Mage extends Personnage
         $this->magicPoints += 15;
     }
 
-    public function frapper($enemy){
-        $degats = $this->forcePerso - $enemy->resistance;
+    public function frapper($target){
+        $degats = $this->forcePerso - $target->resistance;
         if($degats > 0){
-            $enemy->setHealth($degats);
+            $target->setHealth($degats);
         }
-        echo $this->nom() . " frappe " . $enemy->nom() . ", il lui reste : " . $enemy->vie() . "hp" ;
-        if($enemy->vie <= 0){
-            $enemy->isDead();
+        echo $this->nom() . " frappe et inflige " . "$degats degats à " . $target->nom() . ", il lui reste : " . $target->vie() . "hp" . "<br>";
+        if($target->vie <= 0){
+            $target->isDead();
             parent::gagnerExperience(1);
+            $this->magicPoints = 100;
         }
     }
 
@@ -63,12 +66,11 @@ class Mage extends Personnage
         if (!$this->shield){
             $this->vie -= round($damage);
             if($this->vie < 0 || $this->vie == 0 ){
-                
                 $this->vie = 0;
             }
         }else{
             $this->shield = false;
-            echo "$this->nom se protège de la prochaine attaque avec son sort de protection et regagne un peu de mana ! <br>";
+            echo "$this->nom se protège de la prochaine attaque avec son sort de protection et regagne un peu de mana ! (mana = $this->magicPoints ) <br>";
             return;
         }
     }
