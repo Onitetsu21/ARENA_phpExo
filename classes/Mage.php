@@ -22,9 +22,9 @@ class Mage extends Personnage
     }
 
     public function fireball($target) {
-        $magicCost = rand(5, 15);
+        $magicCost = rand(5, 25);
         if ($this->magicPoints == 0) {
-            echo "$this->nom n'a plus de mana, il tape avec son baton!";
+            echo "$this->nom n'a plus de mana, il tape avec son baton! <br>";
             $result = $this->frapper($target);
             return $result;
         } else if ($magicCost > $this->magicPoints) {
@@ -38,12 +38,13 @@ class Mage extends Personnage
         echo "$this->nom a tiré une boule de feu, $target->nom a encore $target->vie hp";
         if($target->vie <= 0){
             $target->isDead();
+            parent::gagnerExperience(1);
         }
     }
 
     public function magicShield(){
         $this->shield = true;
-        
+        $this->magicPoints += 15;
     }
 
     public function frapper($enemy){
@@ -67,7 +68,7 @@ class Mage extends Personnage
             }
         }else{
             $this->shield = false;
-            echo "$this->nom se protège de la prochaine attaque avec son sort de protection! <br>";
+            echo "$this->nom se protège de la prochaine attaque avec son sort de protection et regagne un peu de mana ! <br>";
             return;
         }
     }
